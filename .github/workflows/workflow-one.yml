@@ -1,0 +1,15 @@
+name: Test Workflow One
+on:
+  push:
+    branches: [main]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::123456789012:role/DemoRole
